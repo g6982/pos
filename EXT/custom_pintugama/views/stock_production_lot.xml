@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="stock_production_lot_inh" model="ir.ui.view">
+            <field name="name">stock.production.lot.inh</field>
+            <field name="model">stock.production.lot</field>
+            <field name="inherit_id" ref="product_expiry.view_move_form_expiry"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page/group/group/field[@name='alert_date']" position="after">
+                    <field name="next_days_defeat"/>
+                    <field name="lot_state"/>
+                    <field name="next_defeat_bool" invisible='1'/>
+                    <field name="defeat_bool" invisible='1'/>
+                    <field name="avalaible_bool" invisible='1'/>
+                </xpath>
+                <xpath expr="//page/group/group/field[@name='use_date']" position="attributes">
+                    <attribute name="string">Fecha Limite de Consumo</attribute>
+                </xpath>
+            </field>
+        </record>
+        
+        <record id="view_production_lot_view_tree_inh" model="ir.ui.view">
+            <field name="name">stock.production.lot.tree.inherit.product.expiry</field>
+            <field name="model">stock.production.lot</field>
+            <field name="inherit_id" ref="stock.view_production_lot_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='product_id']" position="after">
+                    <field name="lot_state" widget="badge"/>
+                    <!-- <field name="lot_state" decoration-success="avalaible_bool == True" decoration-warning="next_defeat_bool == True" decoration-danger="defeat_bool == True" widget="badge"/> -->
+                    <!-- <field name="lot_state" options='{"bg_color": "red:defeat_bool == True; green:avalaible_bool == True"}'/> -->
+                    <field name="next_days_defeat" invisible='1'/>
+                    <field name="next_defeat_bool" invisible='1'/>
+                    <field name="defeat_bool" invisible='1'/>
+                    <field name="avalaible_bool" invisible='1'/>
+                </xpath>
+            </field>
+        </record>
+
+        <menuitem action="stock.action_production_lot_form" id="stock.menu_action_production_lot_form" 
+            groups="stock.group_production_lot"  
+            parent="stock.menu_stock_root" sequence="5"/>
+            
+    </data>
+</odoo>
+<!-- optional="hide" -->

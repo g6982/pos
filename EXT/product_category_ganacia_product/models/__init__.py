@@ -1,0 +1,1 @@
+#from . import repot_ganancia_model

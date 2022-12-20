@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2015-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- "License URL : <https://store.webkul.com/license.html/>" -->
+<odoo>
+	<data>
+		<!-- <record id="question_form" model="ir.ui.view">
+			<field name="name">res.security.question.form</field>
+			<field name="model">res.security.question</field>
+			<field name="arch" type="xml">
+
+					<form string="Security Question form">
+						<sheet>
+						<group>
+							<group>
+								<field name="name" placeholder="Question" />
+							</group>
+							<group>
+								<field name="archive"/>
+							</group>
+						</group>
+						</sheet>
+					</form>
+
+			</field>
+		</record> -->
+
+		<record id="question_tree" model="ir.ui.view">
+			<field name="name">res.security.question.tree</field>
+			<field name="model">res.security.question</field>
+			<field name="arch" type="xml">
+				<tree editable="bottom">
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+
+
+<!-- Defining Action Field -->
+
+		<record model="ir.actions.act_window" id="question_action">
+			<field name="name">Security Question</field>
+			<field name="res_model">res.security.question</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="question_tree"/>
+		</record>
+
+<!-- Defining menu item -->
+		<menuitem name="Security Questions"
+			id = "questions_menu"
+			parent="session_root_menu"
+			action="odoo_user_login_security.question_action"
+			sequence="2"
+			groups = "base.user_admin"
+		/>
+
+	</data>
+</odoo>

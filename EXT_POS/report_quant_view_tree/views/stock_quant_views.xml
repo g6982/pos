@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="view_stock_quant_tree_not_edit">
+        <field name="name">stock.quant.tree.not.edit</field>
+        <field name="model">stock.quant</field>
+        <field eval="10" name="priority"/>
+        <field name="arch" type="xml">
+            <tree create="0" delete="0" edit="0" duplicate="0">
+                <field name="id" invisible="1"/>
+                <field name="tracking" invisible="1"/>
+                <field name="product_id" attrs="{'readonly': [('id', '!=', False)]}"
+                       invisible="context.get('single_product', False)"
+                       readonly="context.get('single_product', False)" force_save="1"
+                       options="{'no_create': True}"/>
+                <field name="product_uom_id" groups="uom.group_uom"/>
+                <field name="available_quantity" string="Cantidad a Mano" decoration-danger="available_quantity &lt; 0"/>
+                <field name="location_id" attrs="{'readonly': [('id', '!=', False)]}"
+                       options="{'no_create': True}" invisible="0"/>
+                <field name='company_id' groups="base.group_multi_company" invisible="0"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="quant_not_edit_search_view" model="ir.ui.view">
+        <field name="name">stock.quant.search</field>
+        <field name="model">stock.quant</field>
+        <field eval="10" name="priority"/>
+        <field name="arch" type="xml">
+            <search string="Quants">
+                <field name="product_id"/>
+                <field name="location_id"/>
+                <group expand='0' string='Group by...'>
+                    <filter string='Producto' name="productgroup" context="{'group_by': 'product_id'}"/>
+                    <filter string='Ubicacion' name="locationgroup" domain="[]" context="{'group_by': 'location_id'}"/>
+               </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_stock_quant_tree_not_editable" model="ir.actions.act_window">
+        <field name="name">Reporte a Mano</field>
+    	<field name="type">ir.actions.act_window</field>
+    	<field name="res_model">stock.quant</field>
+    	<field name="binding_view_types">form</field>
+    	<field name="view_mode">tree</field>
+        <field name="domain">[('on_hand', '=', True), ('quantity', '>', 0.0)]</field>
+        <field name="search_view_id" ref="quant_not_edit_search_view"/>
+        <field name="context">{'search_default_on_hand': 1, 'search_default_positive': 1}</field>
+    	<field name="view_ids" eval="[(5, 0, 0), (0, 0, {'sequence': 1, 'view_mode': 'tree', 'view_id': ref('view_stock_quant_tree_not_edit')})]"/>
+    	<field name="help" type="html">
+    		<p class="oe_view_nocontent_create">
+    			Click to add a product in your product list.
+    		</p>
+    		<p>
+    			Marketplace helps you to easily track all product.
+    		</p>
+    	</field>
+    </record>
+</odoo>

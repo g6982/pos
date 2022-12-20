@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2015-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- "License URL : <https://store.webkul.com/license.html/>" -->
+
+<odoo>
+    <record id="id_update_question_answer_form" model="ir.ui.view">
+            <field name="name">Update Question Answer</field>
+            <field name="model">update.question.answer</field>
+            <field name="arch" type="xml">
+                <form>
+                     <group>
+                        <field name="line">
+                            <tree editable="bottom">
+								<field name="question_id"/>
+								<field name="answer"/>
+								<field name="user_id" invisible="1"/>
+							</tree>
+                        </field>
+                    </group>
+                    <footer>
+                        <button name="update_question_answer"
+                                string="Update Now"
+                                type="object"
+                                class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class='oe_link' special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+</odoo>

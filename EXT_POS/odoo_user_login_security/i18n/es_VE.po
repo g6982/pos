@@ -1,0 +1,1281 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* odoo_user_login_security
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-10 14:25+0000\n"
+"PO-Revision-Date: 2022-08-10 13:36-0400\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es_VE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.1.1\n"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.form_res_config_settings
+msgid ""
+"'Yes' will end other sessions.\n"
+"\t\t\t\t\t\t\t\t\t\t\t<br/>'No' will deny login."
+msgstr ""
+"'Sí' finalizará otras sesiones.\n"
+"\t\t\t\t\t\t\t\t\t\t\t<br/>'No' denegará el inicio de sesión".
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.form_res_config_settings
+msgid "5 if left empty."
+msgstr "5 si se deja vacía."
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.update_question_answer
+msgid "<span>Update Security Questions</span>"
+msgstr "Actualizar preguntas de seguridad"
+
+#. module: odoo_user_login_security
+#: model:mail.template,body_html:odoo_user_login_security.mail_login_failure
+msgid ""
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"padding-top:16px;background-color:#F1F1F1;font-family:Verdana,Arial,sans-serif;color:#454748;width:100%;border-collapse:separate;\">\n"
+"\t<tr>\n"
+"\t\t<td align=\"center\">\n"
+"\t\t\t<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"padding:16px;background-color:white;color:#454748;border-collapse:separate;\">\n"
+"\t\t\t\t<tbody>\n"
+"\t\t\t\t\t<!-- HEADER -->\n"
+"\t\t\t\t\t<tr>\n"
+"\t\t\t\t\t\t<td align=\"center\" style=\"min-width:590px;\">\n"
+"\t\t\t\t\t\t\t<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width:590px;background-color:white;padding:0px 8px 0px 8px;border-collapse:separate;\">\n"
+"\t\t\t\t\t\t\t\t<tr>\n"
+"\t\t\t\t\t\t\t\t\t<td valign=\"middle\">\n"
+"\t\t\t\t\t\t\t\t\t\t<span style=\"font-size:10px;\">Your Account</span><br/>\n"
+"\t\t\t\t\t\t\t\t\t\t<span style=\"font-size:20px;font-weight:bold;\">\n"
+"\t\t\t\t\t\t\t\t\t\t\t${object.user_id.name}\n"
+"\t\t\t\t\t\t\t\t\t\t</span>\n"
+"\t\t\t\t\t\t\t\t\t</td>\n"
+"\t\t\t\t\t\t\t\t\t<td valign=\"middle\" align=\"right\">\n"
+"\t\t\t\t\t\t\t\t\t\t<img src=\"/logo.png?company=${object.user_id.company_id.id}\" style=\"padding:0px;margin:0px;height:auto;width:80px;\" alt=\"${object.user_id.company_id.name}\"/>\n"
+"\t\t\t\t\t\t\t\t\t</td>\n"
+"\t\t\t\t\t\t\t\t</tr>\n"
+"\t\t\t\t\t\t\t\t<tr>\n"
+"\t\t\t\t\t\t\t\t\t<td colspan=\"2\" style=\"text-align:center;\">\n"
+"\t\t\t\t\t\t\t\t\t\t<hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0;margin:16px 0px 16px 0px;\"/>\n"
+"\t\t\t\t\t\t\t\t\t</td>\n"
+"\t\t\t\t\t\t\t\t</tr>\n"
+"\t\t\t\t\t\t\t</table>\n"
+"\t\t\t\t\t\t</td>\n"
+"\t\t\t\t\t</tr><!-- CONTENT -->\n"
+"\t\t\t\t\t<tr>\n"
+"\t\t\t\t\t\t<td align=\"center\" style=\"min-width:590px;\">\n"
+"\t\t\t\t\t\t\t<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width:590px;background-color:white;padding:0px 8px 0px 8px;border-collapse:separate;\">\n"
+"\t\t\t\t\t\t\t\t<tr>\n"
+"\t\t\t\t\t\t\t\t\t<td valign=\"top\" style=\"font-size:13px;\">\n"
+"<div>\n"
+"\tDear ${object.user_id.name},<br/><br/>\n"
+"\tSign-in with incorrect credentials was attempted.<br/>\n"
+"\tDetails:<br/>\n"
+"\t<table align=\"center\" style=\"font-size:13px;\">\n"
+"\t\t<tr>\n"
+"\t\t\t<td>Date &amp; Time:</td>\n"
+"\t\t\t<td>${object.date_login}</td>\n"
+"\t\t</tr>\n"
+"\t\t<tr>\n"
+"\t\t\t<td>IP Address:</td>\n"
+"\t\t\t<td>${object.ip}</td>\n"
+"\t\t</tr>\n"
+"\t\t<tr>\n"
+"\t\t\t<td>Browser:</td>\n"
+"\t\t\t<td>${dict(object.fields_get(['browser'])['browser']['selection'])[object.browser]}</td>\n"
+"\t\t</tr>\n"
+"\t\t<tr>\n"
+"\t\t\t<td>Platform:</td>\n"
+"\t\t\t<td>${dict(object.fields_get(['platform'])['platform']['selection'])[object.platform]}</td>\n"
+"\t\t</tr>\n"
+"\t</table><br/>\n"
+"\tIf you do not recognize the sign-in attempt then report the issue immediately.<br/><br/>\n"
+"\tThanks,<br/>\n"
+"\t--\n"
+"\t${user.signature | safe}<br/>\n"
+"</div>\n"
+"\t\t\t\t\t\t\t\t\t</td>\n"
+"\t\t\t\t\t\t\t\t</tr>\n"
+"\t\t\t\t\t\t\t\t<tr>\n"
+"\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">\n"
+"\t\t\t\t\t\t\t\t\t\t<hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0;margin:16px 0px 16px 0px;\"/>\n"
+"\t\t\t\t\t\t\t\t\t</td>\n"
+"\t\t\t\t\t\t\t\t</tr>\n"
+"\t\t\t\t\t\t\t</table>\n"
+"\t\t\t\t\t\t</td>\n"
+"\t\t\t\t\t</tr>\n"
+"\t\t\t\t\t<!-- FOOTER -->\n"
+"\t\t\t\t\t<tr>\n"
+"\t\t\t\t\t\t<td align=\"center\" style=\"min-width:590px;\">\n"
+"\t\t\t\t\t\t\t<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width:590px;background-color:white;font-size:11px;padding:0px 8px 0px 8px;border-collapse:separate;\">\n"
+"\t\t\t\t\t\t\t\t<tr>\n"
+"\t\t\t\t\t\t\t\t\t<td valign=\"middle\" align=\"left\">\n"
+"\t\t\t\t\t\t\t\t\t\t${object.user_id.company_id.name}\n"
+"\t\t\t\t\t\t\t\t\t</td>\n"
+"\t\t\t\t\t\t\t\t</tr>\n"
+"\t\t\t\t\t\t\t\t<tr>\n"
+"\t\t\t\t\t\t\t\t\t<td valign=\"middle\" align=\"left\" style=\"opacity:0.7;\">\n"
+"\t\t\t\t\t\t\t\t\t\t${object.user_id.company_id.phone}\n"
+"\t\t\t\t\t\t\t\t\t\t% if object.user_id.company_id.email\n"
+"\t\t\t\t\t\t\t\t\t\t\t| <a href=\"'mailto:%s' % ${object.user_id.company_id.email}\" style=\"text-decoration:none;color:#454748;\">\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t${object.user_id.company_id.email}\n"
+"\t\t\t\t\t\t\t\t\t\t\t</a>\n"
+"\t\t\t\t\t\t\t\t\t\t% endif\n"
+"\t\t\t\t\t\t\t\t\t\t% if object.user_id.company_id.website\n"
+"\t\t\t\t\t\t\t\t\t\t\t| <a href=\"'%s' % ${object.user_id.company_id.website}\" style=\"text-decoration:none;color:#454748;\">\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t${object.user_id.company_id.website}\n"
+"\t\t\t\t\t\t\t\t\t\t\t</a>\n"
+"\t\t\t\t\t\t\t\t\t\t% endif\n"
+"\t\t\t\t\t\t\t\t\t</td>\n"
+"\t\t\t\t\t\t\t\t</tr>\n"
+"\t\t\t\t\t\t\t</table>\n"
+"\t\t\t\t\t\t</td>\n"
+"\t\t\t\t\t</tr>\n"
+"\t\t\t\t</tbody>\n"
+"\t\t\t</table>\n"
+"\t\t</td>\n"
+"\t</tr>\n"
+"\t<!-- POWERED BY -->\n"
+"\t<tr>\n"
+"\t\t<td align=\"center\" style=\"min-width:590px;\">\n"
+"\t\t\t<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width:590px;background-color:#F1F1F1;color:#454748;padding:8px;border-collapse:separate;\">\n"
+"\t\t\t<tr>\n"
+"\t\t\t\t<td style=\"text-align:center;font-size:13px;\">\n"
+"\t\t\t\t\tPowered by\n"
+"\t\t\t\t\t<a target=\"_blank\" href=\"https://www.odoo.com?utm_source=db&amp;utm_medium=auth\" style=\"color:#875A7B;\">\n"
+"\t\t\t\t\t\tOdoo\n"
+"\t\t\t\t\t</a>\n"
+"\t\t\t\t</td>\n"
+"\t\t\t</tr>\n"
+"\t\t\t</table>\n"
+"\t\t</td>\n"
+"\t</tr>\n"
+"</table>\n"
+"\t\t\t"
+msgstr ""
+
+#. module: odoo_user_login_security
+#: model:mail.template,body_html:odoo_user_login_security.mail_login_suspicious
+msgid ""
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"padding-top:16px;background-color:#F1F1F1;font-family:Verdana,Arial,sans-serif;color:#454748;width:100%;border-collapse:separate;\">\n"
+"% set website_url=object.env['ir.config_parameter'].sudo().get_param('web.base.url')\n"
+"% set action_id  =object.env.ref('odoo_user_login_security.action_session_session')\n"
+"% set menu_id    =object.env.ref('odoo_user_login_security.session_root_menu')\n"
+"\t<tr>\n"
+"\t\t<td align=\"center\">\n"
+"\t\t\t<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"padding:16px;background-color:white;color:#454748;border-collapse:separate;\">\n"
+"\t\t\t\t<tbody>\n"
+"\t\t\t\t\t<!-- HEADER -->\n"
+"\t\t\t\t\t<tr>\n"
+"\t\t\t\t\t\t<td align=\"center\" style=\"min-width:590px;\">\n"
+"\t\t\t\t\t\t\t<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width:590px;background-color:white;padding:0px 8px 0px 8px;border-collapse:separate;\">\n"
+"\t\t\t\t\t\t\t\t<tr>\n"
+"\t\t\t\t\t\t\t\t\t<td valign=\"middle\">\n"
+"\t\t\t\t\t\t\t\t\t\t<span style=\"font-size:10px;\">Your Account</span><br/>\n"
+"\t\t\t\t\t\t\t\t\t\t<span style=\"font-size:20px;font-weight:bold;\">\n"
+"\t\t\t\t\t\t\t\t\t\t\t${object.user_id.name}\n"
+"\t\t\t\t\t\t\t\t\t\t</span>\n"
+"\t\t\t\t\t\t\t\t\t</td>\n"
+"\t\t\t\t\t\t\t\t\t<td valign=\"middle\" align=\"right\">\n"
+"\t\t\t\t\t\t\t\t\t\t<img src=\"/logo.png?company=${object.user_id.company_id.id}\" style=\"padding:0px;margin:0px;height:auto;width:80px;\" alt=\"${object.user_id.company_id.name}\"/>\n"
+"\t\t\t\t\t\t\t\t\t</td>\n"
+"\t\t\t\t\t\t\t\t</tr>\n"
+"\t\t\t\t\t\t\t\t<tr>\n"
+"\t\t\t\t\t\t\t\t\t<td colspan=\"2\" style=\"text-align:center;\">\n"
+"\t\t\t\t\t\t\t\t\t\t<hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0;margin:16px 0px 16px 0px;\"/>\n"
+"\t\t\t\t\t\t\t\t\t</td>\n"
+"\t\t\t\t\t\t\t\t</tr>\n"
+"\t\t\t\t\t\t\t</table>\n"
+"\t\t\t\t\t\t</td>\n"
+"\t\t\t\t\t</tr><!-- CONTENT -->\n"
+"\t\t\t\t\t<tr>\n"
+"\t\t\t\t\t\t<td align=\"center\" style=\"min-width:590px;\">\n"
+"\t\t\t\t\t\t\t<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width:590px;background-color:white;padding:0px 8px 0px 8px;border-collapse:separate;\">\n"
+"\t\t\t\t\t\t\t\t<tr>\n"
+"\t\t\t\t\t\t\t\t\t<td valign=\"top\" style=\"font-size:13px;\">\n"
+"<div>\n"
+"\tDear ${object.user_id.name},<br/><br/>\n"
+"\tAn unrecognized sign-in to your account was noticed recently.<br/>\n"
+"\t<div style=\"margin:16px 0px 16px 0px;\">\n"
+"\t\t<a href=\"${website_url}/web#id=${object.id}&amp;action=${action_id.id}&amp;model=session.session&amp;view_type=form&amp;menu_id=${menu_id.id}\" style=\"background-color:#875A7B;padding:8px 16px 8px 16px;text-decoration:none;color:#fff;border-radius:5px;font-size:13px;\">\n"
+"\t\t\tView Details\n"
+"\t\t</a>\n"
+"\t</div>\n"
+"\tIf anything looks suspicious, change your password immediately.<br/><br/>\n"
+"\t<div style=\"margin: 16px 0px 16px 0px;\">\n"
+"\t\t<a href=\"${website_url}/web/reset_password?db=${object.env.cr.dbname}&amp;login=${object.user_id.login}\" style=\"background-color:#875A7B;padding:8px 16px 8px 16px;text-decoration:none;color:#fff;border-radius:5px;font-size:13px;\">\n"
+"\t\t\tChange Password\n"
+"\t\t</a>\n"
+"\t</div>\n"
+"\tThanks,<br/>\n"
+"\t--\n"
+"\t${user.signature | safe}<br/>\n"
+"</div>\n"
+"\t\t\t\t\t\t\t\t\t</td>\n"
+"\t\t\t\t\t\t\t\t</tr>\n"
+"\t\t\t\t\t\t\t\t<tr>\n"
+"\t\t\t\t\t\t\t\t\t<td style=\"text-align:center;\">\n"
+"\t\t\t\t\t\t\t\t\t\t<hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0;margin:16px 0px 16px 0px;\"/>\n"
+"\t\t\t\t\t\t\t\t\t</td>\n"
+"\t\t\t\t\t\t\t\t</tr>\n"
+"\t\t\t\t\t\t\t</table>\n"
+"\t\t\t\t\t\t</td>\n"
+"\t\t\t\t\t</tr>\n"
+"\t\t\t\t\t<!-- FOOTER -->\n"
+"\t\t\t\t\t<tr>\n"
+"\t\t\t\t\t\t<td align=\"center\" style=\"min-width:590px;\">\n"
+"\t\t\t\t\t\t\t<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width:590px;background-color:white;font-size:11px;padding:0px 8px 0px 8px;border-collapse:separate;\">\n"
+"\t\t\t\t\t\t\t\t<tr>\n"
+"\t\t\t\t\t\t\t\t\t<td valign=\"middle\" align=\"left\">\n"
+"\t\t\t\t\t\t\t\t\t\t${object.user_id.company_id.name}\n"
+"\t\t\t\t\t\t\t\t\t</td>\n"
+"\t\t\t\t\t\t\t\t</tr>\n"
+"\t\t\t\t\t\t\t\t<tr>\n"
+"\t\t\t\t\t\t\t\t\t<td valign=\"middle\" align=\"left\" style=\"opacity:0.7;\">\n"
+"\t\t\t\t\t\t\t\t\t\t${object.user_id.company_id.phone}\n"
+"\t\t\t\t\t\t\t\t\t\t% if object.user_id.company_id.email\n"
+"\t\t\t\t\t\t\t\t\t\t\t| <a href=\"'mailto:%s' % ${object.user_id.company_id.email}\" style=\"text-decoration:none;color:#454748;\">\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t${object.user_id.company_id.email}\n"
+"\t\t\t\t\t\t\t\t\t\t\t</a>\n"
+"\t\t\t\t\t\t\t\t\t\t% endif\n"
+"\t\t\t\t\t\t\t\t\t\t% if object.user_id.company_id.website\n"
+"\t\t\t\t\t\t\t\t\t\t\t| <a href=\"'%s' % ${object.user_id.company_id.website}\" style=\"text-decoration:none;color:#454748;\">\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t${object.user_id.company_id.website}\n"
+"\t\t\t\t\t\t\t\t\t\t\t</a>\n"
+"\t\t\t\t\t\t\t\t\t\t% endif\n"
+"\t\t\t\t\t\t\t\t\t</td>\n"
+"\t\t\t\t\t\t\t\t</tr>\n"
+"\t\t\t\t\t\t\t</table>\n"
+"\t\t\t\t\t\t</td>\n"
+"\t\t\t\t\t</tr>\n"
+"\t\t\t\t</tbody>\n"
+"\t\t\t</table>\n"
+"\t\t</td>\n"
+"\t</tr>\n"
+"\t<!-- POWERED BY -->\n"
+"\t<tr>\n"
+"\t\t<td align=\"center\" style=\"min-width:590px;\">\n"
+"\t\t\t<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"min-width:590px;background-color:#F1F1F1;color:#454748;padding:8px;border-collapse:separate;\">\n"
+"\t\t\t<tr>\n"
+"\t\t\t\t<td style=\"text-align:center;font-size:13px;\">\n"
+"\t\t\t\t\tPowered by\n"
+"\t\t\t\t\t<a target=\"_blank\" href=\"https://www.odoo.com?utm_source=db&amp;utm_medium=auth\" style=\"color:#875A7B;\">\n"
+"\t\t\t\t\t\tOdoo\n"
+"\t\t\t\t\t</a>\n"
+"\t\t\t\t</td>\n"
+"\t\t\t</tr>\n"
+"\t\t\t</table>\n"
+"\t\t</td>\n"
+"\t</tr>\n"
+"</table>\n"
+"\t\t\t"
+msgstr ""
+
+#. module: odoo_user_login_security
+#: model:ir.module.category,description:odoo_user_login_security.category_session_access
+msgid "Access control for sessions"
+msgstr "Control de acceso para sesiones"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_security_question__active
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.search_session_session
+msgid "Active"
+msgstr "Activa"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_config_settings__allow_multiple_session
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_webkul_website_addons__allow_multiple_session
+msgid "Admin Account Sharing"
+msgstr "Compartir cuenta de administrador"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_config_settings__inactive_session_time_out_delay
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_webkul_website_addons__inactive_session_time_out_delay
+msgid "Admin Session Lifetime (seconds)"
+msgstr "Duración de la sesión de administración (segundos)"
+
+#. module: odoo_user_login_security
+#: model:res.groups,name:odoo_user_login_security.group_admin
+msgid "Administration"
+msgstr "Administración"
+
+#. module: odoo_user_login_security
+#: model:res.groups,name:odoo_user_login_security.group_all_sessions
+msgid "All Sessions"
+msgstr "Todas las sesiones"
+
+#. module: odoo_user_login_security
+#: code:addons/odoo_user_login_security/controller/signup_reset_question.py:0
+#, python-format
+msgid "All the selected questions must be different."
+msgstr "Todas las preguntas seleccionadas deben ser diferentes"
+
+#. module: odoo_user_login_security
+#: code:addons/odoo_user_login_security/controller/signup_reset_question.py:0
+#, python-format
+msgid "An email has been sent with credentials to reset your password"
+msgstr "Se ha enviado un correo electrónico con las credenciales para restablecer su contraseña"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields.selection,name:odoo_user_login_security.selection__session_session__platform__android
+msgid "Android"
+msgstr "Androide"
+
+#. module: odoo_user_login_security
+#. openerp-web
+#: code:addons/odoo_user_login_security/static/src/xml/update_que_ans.xml:0
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_security_answer__answer
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.question_list
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.reset_question_answer
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.update_question
+#, python-format
+msgid "Answer"
+msgstr "Responder"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.form_session_session
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.tree_session_session
+msgid "Are you sure?"
+msgstr "estas seguro"
+
+#. module: odoo_user_login_security
+#: code:addons/odoo_user_login_security/controller/signup_reset_question.py:0
+#, python-format
+msgid "Authentication Failed."
+msgstr "Autenticación fallida"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.reset_question_answer
+msgid "Back to Login"
+msgstr "Atrás para iniciar sesión"
+
+#. module: odoo_user_login_security
+#. openerp-web
+#: code:addons/odoo_user_login_security/static/src/xml/dashboard.xml:0
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_session_session__browser
+#, python-format
+msgid "Browser"
+msgstr "Navegador"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_session_session__browser_version
+msgid "Browser Version"
+msgstr "Versión del navegador"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.form_res_config_settings
+msgid ""
+"Can login from multiple systems into same account, if set 'Yes'.\n"
+"\t\t\t\t\t\t\t\t\t\t\t<br/>Setting 'No' improves security."
+msgstr ""
+"Puede iniciar sesión desde múltiples sistemas en la misma cuenta, si se establece en 'Sí'.\n"
+"<br/>Configurar 'No' mejora la seguridad."
+
+#. module: odoo_user_login_security
+#. openerp-web
+#: code:addons/odoo_user_login_security/static/src/xml/update_que_ans.xml:0
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.id_update_question_answer_form
+#, python-format
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields.selection,name:odoo_user_login_security.selection__session_session__platform__chromeos
+msgid "ChromeOS"
+msgstr "Sistema operativo Chrome"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_config_settings__clear_inactive_session_after
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_webkul_website_addons__clear_inactive_session_after
+msgid "Clear Inactive Sessions after Days"
+msgstr "Borrar sesiones inactivas después de días"
+
+#. module: odoo_user_login_security
+#: model:ir.model,name:odoo_user_login_security.model_res_config_settings
+msgid "Config Settings"
+msgstr "Opciones de configuración"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.reset_question_answer
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.update_question
+msgid "Confirm"
+msgstr "Confirmar"
+
+#. module: odoo_user_login_security
+#: model:ir.model,name:odoo_user_login_security.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: odoo_user_login_security
+#: code:addons/odoo_user_login_security/controller/signup_reset_question.py:0
+#, python-format
+msgid "Could not reset your password"
+msgstr "No se pudo restablecer su contraseña"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_session_session__country_id
+msgid "Country"
+msgstr "Ciudad"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_security_answer__create_uid
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_security_question__create_uid
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_session_session__create_uid
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_update_question_answer__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_security_answer__create_date
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_security_question__create_date
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_session_session__create_date
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_update_question_answer__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: odoo_user_login_security
+#: model:ir.ui.menu,name:odoo_user_login_security.session_dashboard_menu
+msgid "Dashboard"
+msgstr "Tablero"
+
+#. module: odoo_user_login_security
+#. openerp-web
+#: code:addons/odoo_user_login_security/static/src/xml/dashboard.xml:0
+#, python-format
+msgid "Date"
+msgstr "Fecha"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.form_res_config_settings
+msgid "Disabled if left empty."
+msgstr "Desactivado si se deja vacío.(masculino)"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_ir_config_parameter__display_name
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_ir_http__display_name
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_partner__display_name
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_security_answer__display_name
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_security_question__display_name
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_users__display_name
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_session_session__display_name
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_update_question_answer__display_name
+msgid "Display Name"
+msgstr "Mostrar nombre"
+
+#. module: odoo_user_login_security
+#: model:ir.model.constraint,message:odoo_user_login_security.constraint_session_session_session_id_unique
+msgid "Duplicate session id detected"
+msgstr "ID de sesión duplicada detectada"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_session_session__duration
+msgid "Duration (HH:MM:SS)"
+msgstr "Duración (HH:MM:SS)"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_config_settings__enable_password_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_webkul_website_addons__enable_password_security
+msgid "Enable Password Security"
+msgstr "Habilitar seguridad de contraseña"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.form_res_config_settings
+msgid "Enable Password Strength Option at Time of Signup and Reset Password."
+msgstr "Habilite la opción de fortaleza de la contraseña al momento de registrarse y restablecer la contraseña."
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_config_settings__enable_security_question
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_webkul_website_addons__enable_security_question
+msgid "Enable Security Question"
+msgstr "Habilitar pregunta de seguridad"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.form_res_config_settings
+msgid "Enable Security Question Option at Time of Signup and Reset Password."
+msgstr "Habilite la opción de pregunta de seguridad al momento de registrarse y restablecer la contraseña."
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.form_session_session
+msgid "End Session"
+msgstr "Finalizar sesión"
+
+#. module: odoo_user_login_security
+#: model:ir.actions.server,name:odoo_user_login_security.action_terminate_sessions
+msgid "End Sessions"
+msgstr "Finalizar sesiones"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_config_settings__end_inactive_session_after
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_webkul_website_addons__end_inactive_session_after
+msgid "End Sessions after Days without activity"
+msgstr "Terminar sesiones después de días sin actividad"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.form_res_config_settings
+msgid "Failed Login Configuration"
+msgstr "Configuración de inicio de sesión fallida"
+
+#. module: odoo_user_login_security
+#: model:mail.template,subject:odoo_user_login_security.mail_login_failure
+msgid "Failed sign-in attempt"
+msgstr "Intento de inicio de sesión fallido"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.search_session_session
+msgid "Filter by Login State"
+msgstr "Filtrar por estado de inicio de sesión"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.form_res_config_settings
+msgid "For expired password on login, user to be redirected to reset password."
+msgstr "Para la contraseña caducada al iniciar sesión, el usuario será redirigido para restablecer la contraseña."
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_config_settings__override_past_session
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_webkul_website_addons__override_past_session
+msgid "Force login"
+msgstr "Forzar inicio de sesión"
+
+#. module: odoo_user_login_security
+#. openerp-web
+#: code:addons/odoo_user_login_security/static/src/xml/dashboard.xml:0
+#, python-format
+msgid "Generic placeholder image"
+msgstr "Imagen de marcador de posición genérico"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields.selection,name:odoo_user_login_security.selection__session_session__browser__chrome
+msgid "Google Chrome"
+msgstr "Google Chrome"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.search_session_session
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: odoo_user_login_security
+#: model:ir.model,name:odoo_user_login_security.model_ir_http
+msgid "HTTP Routing"
+msgstr "Ruta HTTP "
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_ir_config_parameter__id
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_ir_http__id
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_config_settings__id
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_partner__id
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_security_answer__id
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_security_question__id
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_users__id
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_session_session__id
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_update_question_answer__id
+msgid "ID"
+msgstr "Identificación"
+
+#. module: odoo_user_login_security
+#. openerp-web
+#: code:addons/odoo_user_login_security/static/src/xml/dashboard.xml:0
+#, python-format
+msgid "IP Address"
+msgstr "Dirección IP"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.search_session_session
+msgid "Inactive"
+msgstr "Inactivo"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.form_res_config_settings
+msgid "Inactive Session Configuration"
+msgstr "Configuración de sesión inactiva"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.form_res_config_settings
+msgid ""
+"Inactive sessions to be removed after specified days,\n"
+"\t\t\t\t\t\t\t\t\t\t\t<br/> 90 if left empty"
+msgstr ""
+"Sesiones inactivas que se eliminarán después de días específicos,\n"
+"<br/> 90 si se deja vacío"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.form_res_config_settings
+msgid "Intended for developer"
+msgstr "Destinado a desarrollador"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields.selection,name:odoo_user_login_security.selection__session_session__browser__msie
+msgid "Internet Explorer"
+msgstr "explorador de Internet"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_session_session__is_current
+msgid "Is Current"
+msgstr "Es actual"
+
+#. module: odoo_user_login_security
+#. openerp-web
+#: code:addons/odoo_user_login_security/static/src/xml/dashboard.xml:0
+#, python-format
+msgid "Last 1 year"
+msgstr "ultimo 1 año"
+
+#. module: odoo_user_login_security
+#. openerp-web
+#: code:addons/odoo_user_login_security/static/src/xml/dashboard.xml:0
+#, python-format
+msgid "Last 30 days"
+msgstr "últimos 30 días"
+
+#. module: odoo_user_login_security
+#. openerp-web
+#: code:addons/odoo_user_login_security/static/src/xml/dashboard.xml:0
+#, python-format
+msgid "Last 7 days"
+msgstr " Los últimos 7 días"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_session_session__last_activity_on
+msgid "Last Activity On"
+msgstr "Última actividad en"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_users__last_login_attempt
+msgid "Last Login Attempt"
+msgstr "Último intento de inicio de sesión"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_ir_config_parameter____last_update
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_ir_http____last_update
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_config_settings____last_update
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_partner____last_update
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_security_answer____last_update
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_security_question____last_update
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_users____last_update
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_session_session____last_update
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_update_question_answer____last_update
+msgid "Last Modified on"
+msgstr "Modificada por última vez"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_partner__last_password_reset
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_users__last_password_reset
+msgid "Last Password Reset"
+msgstr "Último restablecimiento de contraseña"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_partner__last_password_reset_attempt
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_users__last_password_reset_attempt
+msgid "Last Password Reset Attempt"
+msgstr "Último intento de restablecimiento de contraseña"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_security_answer__write_uid
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_security_question__write_uid
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_session_session__write_uid
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_update_question_answer__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_security_answer__write_date
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_security_question__write_date
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_session_session__write_date
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_update_question_answer__write_date
+msgid "Last Updated on"
+msgstr "Ultima actualización en"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_users__line
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_update_question_answer__line
+msgid "Line"
+msgstr "Línea"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields.selection,name:odoo_user_login_security.selection__session_session__platform__linux
+msgid "Linux"
+msgstr "Linux"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_config_settings__login_cooldown_duration
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_webkul_website_addons__login_cooldown_duration
+msgid "Lockout Time (Seconds)"
+msgstr "Tiempo de bloqueo (segundos)"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_session_session__active
+msgid "Logged"
+msgstr "Registrado"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields.selection,name:odoo_user_login_security.selection__session_session__state__logged_in
+msgid "Logged In"
+msgstr "Conectado"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields.selection,name:odoo_user_login_security.selection__session_session__state__logged_out
+msgid "Logged Out"
+msgstr "Desconectado"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_session_session__date_login
+msgid "Login"
+msgstr "Acceso"
+
+#. module: odoo_user_login_security
+#. openerp-web
+#: code:addons/odoo_user_login_security/static/src/xml/dashboard.xml:0
+#, python-format
+msgid "Login Attempts"
+msgstr "Intentos de acceso"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.search_session_session
+msgid "Login Date"
+msgstr "Fecha"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.form_res_config_settings
+msgid "Login Email Configuration"
+msgstr "Configuración de correo electrónico"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields.selection,name:odoo_user_login_security.selection__session_session__state__error
+msgid "Login Failed"
+msgstr "Error de inicio de sesion"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_users__login_failure_count
+msgid "Login Failure Count"
+msgstr "Recuento de errores de inicio de sesión"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_session_session__date_logout
+msgid "Logout"
+msgstr "Cerrar sesión"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.search_session_session
+msgid "Logout Date"
+msgstr "Fecha de cierre de sesión"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.view_users_form_simple_modif
+msgid "Logout everywhere else"
+msgstr "Cerrar sesión en cualquier otro lugar"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields.selection,name:odoo_user_login_security.selection__session_session__platform__macos
+msgid "MacOS"
+msgstr "Macos"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_config_settings__password_reset_attempt_limit
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_webkul_website_addons__password_reset_attempt_limit
+msgid "Max Number of Password Reset Requests"
+msgstr "Número máximo de solicitudes de restablecimiento de contraseña"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_config_settings__login_cooldown_after
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_webkul_website_addons__login_cooldown_after
+msgid "Maximum Login Failures to Lockout Account"
+msgstr "Número máximo de errores de inicio de sesión para bloquear la cuenta"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields.selection,name:odoo_user_login_security.selection__session_session__browser__edge
+msgid "Microsoft Edge"
+msgstr "Borde de Microsoft"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_config_settings__password_reset_attempt_gap
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_webkul_website_addons__password_reset_attempt_gap
+msgid "Min Time Between Password Reset Requests"
+msgstr "Tiempo mínimo entre solicitudes de restablecimiento de contraseña"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields.selection,name:odoo_user_login_security.selection__session_session__browser__firefox
+msgid "Mozzila Firefox"
+msgstr "Mozilla Firefox"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields.selection,name:odoo_user_login_security.selection__res_config_settings__allow_multiple_session__yes
+#: model:ir.model.fields.selection,name:odoo_user_login_security.selection__webkul_website_addons__allow_multiple_session__yes
+msgid "Multiple"
+msgstr "Multiple"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.update_question
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.updated
+msgid "My Account"
+msgstr "Mi cuenta"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields.selection,name:odoo_user_login_security.selection__res_config_settings__override_past_session__no
+#: model:ir.model.fields.selection,name:odoo_user_login_security.selection__webkul_website_addons__override_past_session__no
+msgid "No"
+msgstr "No"
+
+#. module: odoo_user_login_security
+#: code:addons/odoo_user_login_security/controller/signup_reset_question.py:0
+#, python-format
+msgid "No Question selected at time of signup!"
+msgstr "¡No se seleccionó ninguna pregunta al momento de registrarse!"
+
+#. module: odoo_user_login_security
+#: code:addons/odoo_user_login_security/controller/signup_reset_question.py:0
+#, python-format
+msgid "No login provided."
+msgstr "No se proporcionó inicio de sesión."
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_config_settings__number_of_question
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_webkul_website_addons__number_of_question
+msgid "Number of Questions"
+msgstr "Numero de preguntas"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.form_res_config_settings
+msgid ""
+"Number of password reset request allowed in last hour.\n"
+"\t\t\t\t\t\t\t\t\t\t\t<br/>Disabled if left empty."
+msgstr ""
+"Número de solicitudes de restablecimiento de contraseña permitidas en la última hora.\n"
+"<br/>Deshabilitado si se deja vacío."
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.form_res_config_settings
+msgid "Number of questions"
+msgstr "Numero de preguntas"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields.selection,name:odoo_user_login_security.selection__session_session__browser__opera
+msgid "Opera"
+msgstr "Opera"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields.selection,name:odoo_user_login_security.selection__session_session__browser__other
+msgid "Other Browsers"
+msgstr "Otros navegadores"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields.selection,name:odoo_user_login_security.selection__session_session__platform__other
+msgid "Other Platforms"
+msgstr "Otras plataformas"
+
+#. module: odoo_user_login_security
+#: model:res.groups,name:odoo_user_login_security.group_own_sessions
+msgid "Own Sessions Only"
+msgstr "Solo sesiones propias"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_config_settings__password_lifetime
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_webkul_website_addons__password_lifetime
+msgid "Password Lifetime (days)"
+msgstr "Duración de la contraseña (días)"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.form_res_config_settings
+msgid "Password Lifetime Configuration"
+msgstr "Configuración de la vida útil de la contraseña"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_partner__password_reset_attempt_count
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_users__password_reset_attempt_count
+msgid "Password Reset Attempt Count"
+msgstr "Recuento de intentos de restablecimiento de contraseña"
+
+#. module: odoo_user_login_security
+#: code:addons/odoo_user_login_security/controller/signup_reset_question.py:0
+#, python-format
+msgid "Passwords do not match; please retype them."
+msgstr "Las contraseñas no coinciden; por favor vuelva a escribirlos."
+
+#. module: odoo_user_login_security
+#. openerp-web
+#: code:addons/odoo_user_login_security/static/src/xml/dashboard.xml:0
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_session_session__platform
+#, python-format
+msgid "Platform"
+msgstr "Plataforma"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.form_res_config_settings
+msgid ""
+"Please enter a number 1 or greater in this field.\n"
+"\t\t\t\t\t\t\t\t\t\t\t<br/>Disabled if left empty."
+msgstr ""
+"Ingrese un número 1 o mayor en este campo.\n"
+"<br/>Deshabilitado si se deja vacío."
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.form_res_config_settings
+msgid "Please enter at least 60 and at most 31536000 (one year)."
+msgstr "Ingrese al menos 60 y como máximo 31536000 (un año)."
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_security_answer__question_id
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_security_question__name
+msgid "Question"
+msgstr "Pregunta"
+
+#. module: odoo_user_login_security
+#: code:addons/odoo_user_login_security/controller/signup_reset_question.py:0
+#, python-format
+msgid "Question and Answers does not match!"
+msgstr "¡Preguntas y respuestas no coinciden!"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.actions.act_window,help:odoo_user_login_security.action_session_session
+msgid "Re-login to view current session record."
+msgstr "Vuelva a iniciar sesión para ver el registro de la sesión actual."
+
+#. module: odoo_user_login_security
+#. openerp-web
+#: code:addons/odoo_user_login_security/static/src/xml/dashboard.xml:0
+#, python-format
+msgid "Recent Active Logins"
+msgstr "Inicios de sesión activos recientes"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.updated
+msgid "Record has been updated successfully!"
+msgstr "¡El registro se ha actualizado con éxito!"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_config_settings__password_reset_attempt_expiration
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_webkul_website_addons__password_reset_attempt_expiration
+msgid "Recovery Link Expiration Period (hours)"
+msgstr "Período de vencimiento del enlace de recuperación (horas)"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_config_settings__forced_password_change
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_webkul_website_addons__forced_password_change
+msgid "Redirect to Change Password"
+msgstr "Redirigir a Cambiar contraseña"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_session_session__ip
+msgid "Remote IP"
+msgstr "IP remota"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.form_res_config_settings
+msgid "Reset Password Configuration"
+msgstr "Restablecer configuración de contraseña"
+
+#. module: odoo_user_login_security
+#: code:addons/odoo_user_login_security/controller/signup_reset_question.py:0
+#, python-format
+msgid "Reset password: invalid username or email!"
+msgstr "Restablecer contraseña: nombre de usuario o correo electrónico no válido."
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields.selection,name:odoo_user_login_security.selection__session_session__browser__safari
+msgid "Safari"
+msgstr "Safari"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.res_user_add_page
+msgid "Security Quesions Answer"
+msgstr "Respuesta a preguntas de seguridad"
+
+#. module: odoo_user_login_security
+#: model:ir.actions.act_window,name:odoo_user_login_security.question_action
+msgid "Security Question"
+msgstr "Pregunta de seguridad"
+
+#. module: odoo_user_login_security
+#: model:ir.ui.menu,name:odoo_user_login_security.questions_menu
+msgid "Security Questions"
+msgstr "Preguntas de seguridad"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.form_res_config_settings
+msgid "Security Qusestion Configuration"
+msgstr "Configuración de preguntas de seguridad"
+
+#. module: odoo_user_login_security
+#. openerp-web
+#: code:addons/odoo_user_login_security/static/src/xml/update_que_ans.xml:0
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.question_list
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.update_question
+#, python-format
+msgid "Select Question"
+msgstr "Seleccionar pregunta"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_config_settings__send_failed_login_email
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_webkul_website_addons__send_failed_login_email
+msgid "Send Email on Failed Login"
+msgstr "Enviar correo electrónico en caso de inicio de sesión fallido"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_config_settings__send_suspicious_login_email
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_webkul_website_addons__send_suspicious_login_email
+msgid "Send Email on Suspicious Login"
+msgstr "Enviar correo electrónico en caso de inicio de sesión sospechoso"
+
+#. module: odoo_user_login_security
+#: model:ir.model,name:odoo_user_login_security.model_session_session
+#: model:ir.module.category,name:odoo_user_login_security.category_session_access
+msgid "Session"
+msgstr "Sesión"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_session_session__session_id
+msgid "Session ID"
+msgstr "ID de sesión"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.form_res_config_settings
+msgid "Session Timeout Configuration"
+msgstr "Configuración del tiempo de espera de la sesión"
+
+#. module: odoo_user_login_security
+#. openerp-web
+#: code:addons/odoo_user_login_security/static/src/xml/dashboard.xml:0
+#, python-format
+msgid "Session by Status"
+msgstr "Sesión por estado"
+
+#. module: odoo_user_login_security
+#: model:ir.actions.server,name:odoo_user_login_security.cron_remove_inactive_sessions_ir_actions_server
+#: model:ir.cron,cron_name:odoo_user_login_security.cron_remove_inactive_sessions
+#: model:ir.cron,name:odoo_user_login_security.cron_remove_inactive_sessions
+msgid "Session: Remove Inactive Sessions"
+msgstr "Sesión: eliminar sesiones inactivas"
+
+#. module: odoo_user_login_security
+#: model:ir.actions.act_window,name:odoo_user_login_security.action_session_session
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_users__session_ids
+#: model:ir.ui.menu,name:odoo_user_login_security.menu_session_session
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.form_res_config_settings
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.graph_session_session
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.view_users_form
+msgid "Sessions"
+msgstr "Sesiones"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.form_res_config_settings
+msgid ""
+"Sessions will be timed out in case of no activity after,\n"
+"\t\t\t\t\t\t\t\t\t\t\t<br/> 7 if left empty"
+msgstr ""
+"Las sesiones finalizarán en caso de que no haya actividad después,\n"
+"<br/> 7 si se deja vacío"
+
+#. module: odoo_user_login_security
+#: model:ir.actions.act_window,name:odoo_user_login_security.action_res_config_settings
+#: model:ir.ui.menu,name:odoo_user_login_security.res_config_settings_menu
+msgid "Settings"
+msgstr "Ajustes"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.form_res_config_settings
+msgid "Simultaneous Session Configuration"
+msgstr "Configuración de sesión simultánea"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields.selection,name:odoo_user_login_security.selection__res_config_settings__allow_multiple_session__single
+#: model:ir.model.fields.selection,name:odoo_user_login_security.selection__webkul_website_addons__allow_multiple_session__single
+msgid "Single"
+msgstr "Único"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_session_session__state
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.search_session_session
+msgid "State"
+msgstr "Estado"
+
+#. module: odoo_user_login_security
+#: model:ir.model,name:odoo_user_login_security.model_ir_config_parameter
+msgid "System Parameter"
+msgstr "Parámetro del sistema"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields.selection,name:odoo_user_login_security.selection__session_session__state__terminated
+msgid "Terminated"
+msgstr "Terminado"
+
+#. module: odoo_user_login_security
+#: code:addons/odoo_user_login_security/controller/signup_reset_question.py:0
+#, python-format
+msgid "The form was not properly filled in."
+msgstr "El formulario no se llenó correctamente."
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields.selection,name:odoo_user_login_security.selection__session_session__state__timed_out
+msgid "Timeout"
+msgstr "Se acabó el tiempo"
+
+#. module: odoo_user_login_security
+#: code:addons/odoo_user_login_security/models/res_users.py:0
+#, python-format
+msgid "Too many login failures, please wait a bit before trying again."
+msgstr "Demasiados errores de inicio de sesión, espere un poco antes de volver a intentarlo."
+
+#. module: odoo_user_login_security
+#. openerp-web
+#: code:addons/odoo_user_login_security/static/src/xml/dashboard.xml:0
+#, python-format
+msgid "Total Active Sessions :"
+msgstr "Sesiones activas totales:"
+
+#. module: odoo_user_login_security
+#. openerp-web
+#: code:addons/odoo_user_login_security/static/src/xml/dashboard.xml:0
+#, python-format
+msgid "Total Sessions :"
+msgstr "Sesiones totales:"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields.selection,name:odoo_user_login_security.selection__session_session__state__unknown
+msgid "Unknown"
+msgstr "Desconocido"
+
+#. module: odoo_user_login_security
+#: model:mail.template,subject:odoo_user_login_security.mail_login_suspicious
+msgid "Unrecognized sign-in "
+msgstr "Inicio de sesión no reconocido"
+
+#. module: odoo_user_login_security
+#. openerp-web
+#: code:addons/odoo_user_login_security/static/src/xml/update_que_ans.xml:0
+#, python-format
+msgid "Update"
+msgstr "Actualizar"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.id_update_question_answer_form
+msgid "Update Now"
+msgstr "Actualizar ahora"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.view_users_form_simple_modif
+msgid "Update Question Answer"
+msgstr "Actualizar respuesta de pregunta"
+
+#. module: odoo_user_login_security
+#. openerp-web
+#: code:addons/odoo_user_login_security/static/src/js/update_que_ans.js:0
+#, python-format
+msgid "Update Security Question Answer"
+msgstr "Actualizar la respuesta a la pregunta de seguridad"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_config_settings__inactive_session_time_out_ignored_url
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_webkul_website_addons__inactive_session_time_out_ignored_url
+msgid "Urls to be Ignored in User Activities"
+msgstr "Urls para ser ignoradas en las actividades del usuario"
+
+#. module: odoo_user_login_security
+#. openerp-web
+#: code:addons/odoo_user_login_security/static/src/xml/dashboard.xml:0
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_res_security_answer__user_id
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_session_session__user_id
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.search_session_session
+#, python-format
+msgid "User"
+msgstr "Usuario"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields,field_description:odoo_user_login_security.field_session_session__user_agent
+msgid "User Agent"
+msgstr "Agente de usuario"
+
+#. module: odoo_user_login_security
+#: model:ir.actions.client,name:odoo_user_login_security.session_dashboard
+msgid "User Login Security Dashboard"
+msgstr "Panel de seguridad de inicio de sesión de usuario"
+
+#. module: odoo_user_login_security
+#: model:ir.ui.menu,name:odoo_user_login_security.session_root_menu
+msgid "User Sessions"
+msgstr "Sesiones de usuario"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.form_res_config_settings
+msgid "User will get email on logging first time on browser."
+msgstr "El usuario recibirá un correo electrónico al iniciar sesión por primera vez en el navegador."
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.form_res_config_settings
+msgid "User will get email on password entered wrong."
+msgstr "El usuario recibirá un correo electrónico sobre la contraseña ingresada incorrectamente."
+
+#. module: odoo_user_login_security
+#: model:ir.model,name:odoo_user_login_security.model_res_users
+msgid "Users"
+msgstr "Usuarios"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.form_res_config_settings
+msgid "When limit reached, login would be denied for"
+msgstr "Cuando se alcance el límite, se denegará el inicio de sesión para"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields.selection,name:odoo_user_login_security.selection__session_session__platform__windows
+msgid "Windows"
+msgstr "ventanas"
+
+#. module: odoo_user_login_security
+#. openerp-web
+#: code:addons/odoo_user_login_security/static/src/xml/update_que_ans.xml:0
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.question_list
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.update_question
+#, python-format
+msgid "Write Answer"
+msgstr "Escribir respuesta"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields.selection,name:odoo_user_login_security.selection__res_config_settings__override_past_session__yes
+#: model:ir.model.fields.selection,name:odoo_user_login_security.selection__webkul_website_addons__override_past_session__yes
+msgid "Yes"
+msgstr "Si"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields.selection,name:odoo_user_login_security.selection__session_session__platform__ipad
+msgid "iPad"
+msgstr "iPad"
+
+#. module: odoo_user_login_security
+#: model:ir.model.fields.selection,name:odoo_user_login_security.selection__session_session__platform__iphone
+msgid "iPhone"
+msgstr "iPhone"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.id_update_question_answer_form
+msgid "or"
+msgstr "o"
+
+#. module: odoo_user_login_security
+#: model:ir.model,name:odoo_user_login_security.model_res_security_answer
+msgid "res.security.answer"
+msgstr "res.seguridad. Respuesta"
+
+#. module: odoo_user_login_security
+#: model:ir.model,name:odoo_user_login_security.model_res_security_question
+msgid "res.security.question"
+msgstr "res.seguridad.pregunta"
+
+#. module: odoo_user_login_security
+#: model_terms:ir.ui.view,arch_db:odoo_user_login_security.question_list
+msgid "security question"
+msgstr "Pregunta de seguridad"
+
+#. module: odoo_user_login_security
+#. openerp-web
+#: code:addons/odoo_user_login_security/static/src/xml/update_que_ans.xml:0
+#, python-format
+msgid "select"
+msgstr "Seleccione"
+
+#. module: odoo_user_login_security
+#: model:ir.model,name:odoo_user_login_security.model_update_question_answer
+msgid "update.question.answer"
+msgstr "actualización. Pregunta. Respuesta"

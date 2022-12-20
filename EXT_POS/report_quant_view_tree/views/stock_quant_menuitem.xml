@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_stock_quant_not_edit" name="Buscador Productos" web_icon="report_quant_view_tree,static/description/icon.png"
+        sequence="40"/>
+        <menuitem
+                id="menu_stock_quant_tree_not_editable"
+                name="Cantidad a mano"
+                action="action_stock_quant_tree_not_editable"
+                parent="menu_stock_quant_not_edit"
+                sequence="5"
+        />
+
+    </data>
+</odoo>

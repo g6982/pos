@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_session_session,access_session_session,model_session_session,group_own_sessions,1,0,0,0
+security_question_manager,manager access,model_res_security_question,group_admin,1,1,1,1
+security_question_user,manager access,model_res_security_question,,1,0,0,0
+security_answer,manager access,model_res_security_answer,group_own_sessions,1,1,1,1
+security_question_answer,manager access,model_update_question_answer,group_own_sessions,1,1,1,1

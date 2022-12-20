@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright (c) 2015-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- "License URL : <https://store.webkul.com/license.html/>" -->
+<odoo>
+    <data>
+        <template id="question_list" name="questions_list" inherit_id="auth_signup.fields">
+            <xpath expr="//div[hasclass('field-confirm_password')]" position="after">
+            <t t-set="questions" t-value="request.env['res.security.question'].search([])"/>
+            <t t-set="number_of_question" t-value="request.env['ir.config_parameter'].sudo().get_param('odoo_user_login_security.number_of_question')"/>
+            <t t-set="question_enabled" t-value="request.env['ir.config_parameter'].sudo().get_param('odoo_user_login_security.enable_security_question')"/>
+			<t t-set="enable_password_security" t-value="request.env['ir.config_parameter'].sudo().get_param('odoo_user_login_security.enable_password_security')"/>
+			<input type="hidden" name="enable_password_security" t-att-value="enable_password_security"/>
+			<t t-set="var" t-value="1"/>
+			<t t-if="question_enabled and not only_passwords">
+				<t t-if="int(number_of_question) > 0">
+					<t t-foreach="range(int(number_of_question))" t-as="i">
+
+						<div t-attf-class="form-group">
+							<label class="col-form-label" for="question">Select Question <t t-esc="var" /></label>
+							<select t-attf-name="que_{{i+1}}" t-attf-class="form-control questions">
+								<option value="">security question</option>
+
+								<t t-foreach="questions" t-as="que">
+									<t t-if="que.active != True">
+										<option t-att-value="que.id" t-attf-class="form-control">
+											<t t-esc="que.name" />
+										</option>
+									</t>
+								</t>
+							</select>
+							<label class="col-form-label">Write Answer</label>
+							<input type="text" t-attf-name="ans_{{i+1}}" t-att-value="ans" id="ans" class="form-control form-control-sm" placeholder="Answer"
+							/>
+						</div>
+						<t t-set="var" t-value="var + 1"/>
+					</t>
+				</t>
+            </t>
+            </xpath>
+        </template>
+		<template id="update_question_answer"  name="Update Question Answer" inherit_id="portal.user_dropdown">
+			<xpath expr="//*[@id='o_logout_divider']" position="before">
+				<t t-set="question_enabled" t-value="request.env['ir.config_parameter'].sudo().get_param('odoo_user_login_security.enable_security_question')"/>
+				<t t-if="question_enabled">
+					<a href="/update_question" role="menuitem" class="dropdown-item">
+
+						<span>Update Security Questions</span>
+
+					</a>
+				</t>
+			</xpath>
+		</template>
+		<template id="odoo_user_login_security.update_question" name="Update Security Questions">
+			<t t-call="web.login_layout">
+
+				<form class="oe_reset_password_form" role="form" method="post" t-if="not message">
+					<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+					<t t-set="questions" t-value="request.env['res.security.question'].search([])"/>
+					<t t-set="var" t-value="0"/>
+					<t t-foreach="obj.line" t-as="i">
+						<div t-attf-class="form-group">
+							<label class="col-form-label" for="question">Select Question <t t-esc="var+1"/></label>
+							<select t-attf-name="que_{{var+1}}" t-attf-class="form-control questions">
+								<option t-att-value="i.question_id.id"><t t-esc="i.question_id.name" /></option>
+								<t t-foreach="questions" t-as="que">
+								<t t-if="que.id != i.question_id.id and que.active != True">
+									<option t-att-value="que.id" t-attf-class="form-control">
+									<t t-esc="que.name" />
+									</option>
+								</t>
+								</t>
+							</select>
+							<label class="col-form-label">Write Answer</label>
+							<input type="text" t-attf-name="ans_{{var+1}}" t-att-value="i.answer" id="ans" class="form-control form-control-sm" placeholder="Answer"
+							/>
+						</div>
+						<t t-set="var" t-value="var + 1"/>
+					</t>
+
+					<p class="alert alert-danger" t-if="error" role="alert">
+						<t t-esc="error"/>
+					</p>
+					<div class="clearfix oe_login_buttons">
+						<button type="submit" class="btn btn-primary btn-block">Confirm</button>
+					</div>
+					<div>
+						<a href="/my/home" class="btn btn-link float-right" role="button">My Account</a>
+					</div>
+				</form>
+
+			</t>
+		</template>
+
+		<template id="updated">
+			<t t-call="web.login_layout">
+				<br/>
+					<h3 class="alert alert-success" role="alert">Record has been updated successfully!</h3>
+				<br/>
+				<div>
+					<a href="/my/home" class="btn btn-link float-right" role="button">My Account</a>
+				</div>
+			</t>
+		</template>
+
+		<template id="odoo_user_login_security.reset_question_answer" name="Reset password">
+			<t t-call="web.login_layout">
+				<div t-if="message">
+					<p class="alert alert-success" t-if="message" role="status">
+						<t t-esc="message"/>
+					</p>
+					<a href="/web/login" class="btn btn-link float-right" role="button">Back to Login</a>
+				</div>
+
+				<form class="oe_reset_password_form" role="form" method="post" t-if="not message">
+					<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+					<t t-set="enable_password_security" t-value="request.env['ir.config_parameter'].sudo().get_param('odoo_user_login_security.enable_password_security')"/>
+					<input type="hidden" name="enable_password_security" t-att-value="enable_password_security"/>
+
+					<input type="hidden" name="login" t-att-value="obj.login"/>
+					<t t-set="var" t-value="0"/>
+					<t t-foreach="obj.line" t-as="i">
+						<div t-attf-class="form-group">
+							<t t-esc="i.question_id.name"/>
+							<input type="text" t-attf-name="ans_{{var+1}}" t-att-value="ans" id="ans" class="form-control form-control-sm" placeholder="Answer" required="required"/>
+						</div>
+						<t t-set="var" t-value="var + 1"/>
+					</t>
+
+					<p class="alert alert-danger" t-if="error" role="alert">
+						<t t-esc="error"/>
+					</p>
+					<div class="clearfix oe_login_buttons">
+						<button type="submit" class="btn btn-primary btn-block">Confirm</button>
+						<div class="d-flex justify-content-between align-items-center small mt-2">
+							<a t-if="not token" t-attf-href="/web/login?{{ keep_query() }}">Back to Login</a>
+							<a t-if="invalid_token" href="/web/login">Back to Login</a>
+						</div>
+						<div class="o_login_auth"/>
+					</div>
+
+				</form>
+
+			</t>
+		</template>
+
+    </data>
+</odoo>

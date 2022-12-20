@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="wizard_price_form" model="ir.ui.view">
+            <field name="name">wizard price</field>
+            <field name="model">wizard.price</field>
+            <field name="arch" type="xml">
+                 <form string="Price">
+                    <group>
+                        <group>
+                            <field name="product_ids" string="Producto" widget="many2many_tags" options="{'no_create': True, 'no_create_edit':True}"/>
+                        </group>
+                        
+                        <group>
+                            <field name="change" widget="radio" string="Cálculo de Ganancia" />
+                            <field name="revenue" string="Factor de utilidad" attrs="{'invisible': [('change', 'in',('por',False))]}"/>
+                            <field name="porc" string="Porcentaje de ganancia" attrs="{'invisible': [('change', 'in',('fac',False))]}"/>
+                        </group>
+                    </group>
+
+                    <footer>
+                        <button name="recalculate_revenue" string="Aplicar factor de utilidad" type="object" class="oe_highlight" attrs="{'invisible': [('change', 'in',('por',False))]}"/>
+                        <button name="recalculate_porc" string="Aplicar porcentaje de ganancia" type="object" class="oe_highlight" attrs="{'invisible': [('change', 'in',('fac',False))]}"/>
+                        <button special="cancel" string="Cancel" class="oe_highlight" />
+                    </footer>
+
+                </form>
+            </field>
+        </record>
+
+        <record id="action_menu_wizard" model="ir.actions.act_window">
+            <field name="name">wizard Menu</field>
+            <field name="res_model">wizard.price</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="wizard_price_form"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="price_menu" name="Margen de Ganancia" parent="stock.menu_stock_inventory_control" action="action_menu_wizard" sequence="3"/>
+    </data>
+</odoo>

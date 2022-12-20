@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data> 
+  <record id="paperformat_reporte_comision" model="report.paperformat">
+
+      <field name="default" eval="True"/>
+        <field name="name">A4 Nota de Entrega</field>
+        <field name="default" eval="True"/>
+        <field name="format">custom</field>
+        <field name="page_height">279</field>
+        <field name="page_width">216</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">10</field>
+        <field name="margin_bottom">35</field>
+        <field name="margin_left">5</field>
+        <field name="margin_right">5</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">35</field>
+        <field name="dpi">96</field>
+    </record>
+
+    <template id="sale_report_quimica">
+            <t t-call="web.html_container">
+              <t t-call="web.basic_layout" >
+                <div class="page" width="100%">
+                 <t t-foreach="docs.user_ids" t-as="vendedor">
+            <table  width="100%" align="right" >  
+
+
+            <tr style="width:30%;"  colspan="1">
+                <br/>
+                <t t-if="vendedor.company_id.logo">  
+                  <img t-attf-src="data:image/*;base64,{{vendedor.company_id.logo}}" style="height:80px;"/>
+                </t>
+             
+            </tr>
+
+                        <h1 style="font-size:20px;" align="center"  >REPORTE DE COMISION POR VENTA</h1>
+
+                          <br/>
+                          <br/>
+                                   
+            <tr style="font-size:13px;">
+
+                            <td style="font-size:13px">FECHA DE EMISION:&amp;nbsp;</td>
+                            <td colspan="2"></td>
+
+
+                            <td style="font-size:13px" align="LEFT" >VENDEDOR:&amp;nbsp;<t t-esc="vendedor.name" /></td>
+                            <td colspan="2"></td>
+                                      
+                                      
+            </tr>
+                    
+                    </table>
+
+                        <br/>
+                        <br/>        
+                                   
+
+            <table width="100%"  class="table " style="white-space: nowrap; overflow-x: auto;">
+                                    <tbody class="table">
+                                      <tr align="center" style="font-size:13px;">
+                                      
+                                        <td>FACTURA</td>
+                                        <td>FECHA FACTURA</td>
+                                        <td>MONTO FACTURA</td>
+                                        <td>MONTO BASE</td>
+                                        <td>COMISION</td>
+                                        <td>MONTO COMISION</td>
+                                      </tr>
+                                    </tbody>
+
+
+                             <t t-set="acum_subtotal" t-value="0"/>
+                           
+
+                                 
+
+                <tbody class="table ; width=100%">
+                    <t t-foreach="docs.commission_invoice_ids" t-as="lineas">
+                    <tr style="font-size:10px;">
+                        <td style="font-size:10px;" align="center"><t t-esc="lineas.account_id.name" /></td>
+                        <td style="font-size:10px;" align="center"><t t-esc="lineas.account_id.invoice_date" /></td>
+                        <td style="font-size:10px;" align="center" ><t t-esc="lineas.account_id.amount_total" /><t t-esc="lineas.account_id.currency_id.symbol" /></td>
+                        <td style="font-size:10px;" align="center" ><t t-esc="lineas.account_id.amount_untaxed"/><t t-esc="lineas.account_id.currency_id.symbol" /></td>
+                        <td style="font-size:10px;" align="center"><t t-esc="lineas.account_id.commission_sale.name" /></td>
+                        <td style="font-size:10px;" align="center"><t t-esc="lineas.float_format(lineas.account_id.commission)" /><t t-esc="lineas.account_id.currency_id.symbol" /><t t-set="acum_subtotal" t-value="acum_subtotal+lineas.account_id.commission"/></td> 
+
+
+
+                        </tr>
+
+                    </t>
+                </tbody>
+
+    </table>
+
+                                      <br/>
+                                      <br/>
+                                     
+                <table width="100%">
+                                       
+                <tr style="font-size:13px;">
+
+                 <td colspan="3"><div align="right" style="font-size:13px;">Total de comisiones:&amp;nbsp;<t t-esc="docs.float_format(acum_subtotal)"/></div></td>
+                 
+                  <t t-set="acum_subtotal" t-value="acum_subtotal"/>
+
+                </tr>
+                </table>
+
+                  </t>
+                </div>
+
+            
+              </t>
+            </t>
+    </template>
+
+
+    <report
+            id="action_report_sale"
+            model="hr.sales.goal"
+            string="Reporte de Ganancias por venta"
+            report_type="qweb-pdf"
+            name="commission_sales_hr.sale_report_quimica"
+            file="commission_sales_hr.sale_report_quimica"
+            paperformat="commission_sales_hr.paperformat_reporte_comision" 
+        />
+
+      
+         
+  
+  </data>
+</odoo>
+

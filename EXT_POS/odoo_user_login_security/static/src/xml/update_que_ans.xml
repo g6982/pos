@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+<div t-name="EmptyComponent"/>
+
+<div t-name="Loading" class="o_loading"/>
+<form t-name="UpdateQuestionAnswer" name="update_que_ans_form" method="POST" aria-atomic="true">
+
+	<div class="o_form_view">
+		<t t-set="Widget" t-value="widget"/>
+		<t t-set="number_of_question" t-value="widget.num_of_que"/>
+		<t t-set="question_enabled" t-value="widget.enable"/>
+		<t t-set="questions" t-value="widget.questions"/>
+		<t t-set="var" t-value="1"/>
+		<t t-if="question_enabled">
+			<t t-if="number_of_question.length > 0">
+				<t t-foreach="number_of_question" t-as="i">
+
+					<div t-attf-class="form-group">
+						<label class="col-form-label" for="question">Select Question <t t-esc="var" /></label>
+						<select t-attf-name="que_{{i+1}}" t-attf-class="form-control" >
+							<option value="">select</option>
+
+							<t t-foreach="questions" t-as="que">
+								<!-- <t t-if="que.active"> -->
+									<option t-att-value="que.id" t-attf-class="form-control">
+										<t t-esc="que.name" />
+									</option>
+								<!-- </t> -->
+							</t>
+						</select>
+						<label class="col-form-label">Write Answer</label>
+						<input type="text" t-attf-name="ans_{{i+1}}" t-att-value="ans" id="ans" class="form-control form-control-sm" placeholder="Answer"
+						/>
+					</div>
+					<t t-set="var" t-value="var + 1"/>
+				</t>
+			</t>
+		</t>
+
+		<!-- <p> Checking for the form</p> -->
+	</div>
+	<button type="button" class="btn btn-primary oe_form_button">Update</button>
+	<button type="button" class="btn btn-secondary oe_form_button oe_form_button_cancel" href="javascript:void(0)">Cancel</button>
+</form>
+
+</templates>

@@ -1,0 +1,20 @@
+<odoo>
+  <data>
+      <record id="informes" model="ir.actions.act_url">
+            <field name="name">Informes</field>
+            <field name="type">ir.actions.act_url</field>
+            <field name="target">self</field>
+            <!--field name="url">http://localhost/a/odoo_lista_pedidos_pg.php</field--><!--www.google.com.au/?teste2=teste2-->
+            <field name="url">http://localhost:8080/impresora_fiscal/reporte_diario.php</field>
+      </record>
+
+      <menuitem
+             id="history_pedidos"
+             parent="point_of_sale.menu_point_root"
+             name="Reportes X y Z Impr. Fiscal" 
+             action="informes"
+             sequence="999"
+        /><!-- Historico de pedidos-->
+
+  </data>
+</odoo>

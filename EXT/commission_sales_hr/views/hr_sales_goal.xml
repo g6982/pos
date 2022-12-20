@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        
+        <record id="hr_sales_goal_view_form" model="ir.ui.view">
+            <field name="name">hr.sales.goal.view.form</field>
+            <field name="model">hr.sales.goal</field>
+            <field name="arch" type="xml">
+                <form string="Informe de Comision por ventas">
+                 
+                        <group>
+                            <group>
+                               
+                                <field name="user_ids" required="1" widget="many2many_tags"/>  
+                            </group>
+
+                            <group>
+                            <field name="date_start"/>
+                            <field name="date_stop"/>
+        
+                        </group>
+                        </group>
+
+              <footer>
+                            
+                            <button 
+                            name="print_report_sale"
+                            string="Imprimir Clientes y Ventas pdf" 
+                            type="object" class="oe_highlight"/>
+
+                           <button special="cancel" string="Cancelar" class="oe_highlight"/>
+                    </footer>   
+                </form>
+            </field>
+        </record>
+
+
+        <record id="hr_sales_goal_action" model="ir.actions.act_window">
+            <field name="type">ir.actions.act_window</field>
+            <field name="name">Comisiones por venta</field>
+            <field name="res_model">hr.sales.goal</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="hr_sales_goal_view_form"/>
+            <field name="target">new</field>
+        </record>
+
+        <!-- <menuitem id="menu_goals" name="Meta" parent="hr_work_entry_contract.menu_hr_payroll_configuration" sequence="1000"/> -->
+        <menuitem id="menu_goals" name="Informe de Comision por ventas" parent="sale.sale_menu_root" sequence="1000"/>
+        <menuitem id="menu_hr_sales_goals" action="hr_sales_goal_action" name="Comisiones por venta" parent="menu_goals" sequence="1"/>
+
+        <!-- <menuitem id="menu_hr_sales_goals" name="Goals" parent="hr_payroll.menu_hr_payroll_configuration" sequence="1"/> -->
+
+
+
+    </data>
+</odoo>

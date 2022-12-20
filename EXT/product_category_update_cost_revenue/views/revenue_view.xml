@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="product_category_update_revenue_template" model="ir.ui.view">
+        <field name="name">product.template.view.from</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            
+     
+            <xpath expr="//field[@name='invoice_policy']" position="after">
+
+                <field name="calculation" string="Cálculo" />
+                <field name="cant_r" readonly="1" string="Factor" attrs="{'invisible': [('calculation', 'in',('Porcentaje de ganancia', False))]}"/>
+                <field name="cant_p" readonly="1" string="Porcentaje" attrs="{'invisible': [('calculation', 'in',('Factor de utilidad', False))]}"/>
+
+            </xpath>      
+
+        </field>
+    </record>
+</odoo>

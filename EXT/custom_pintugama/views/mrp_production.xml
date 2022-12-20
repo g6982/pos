@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="mrp_production_form_view_inh" model="ir.ui.view">
+            <field name="name">mrp.production.form.view.inh</field>
+            <field name="model">mrp.production</field>
+            <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page/field[@name='move_raw_ids']/tree/field[@name='product_id']" position="after">
+                    <field name='percentage'/>
+                    <field name='density'/>
+                    <field name='dough'/>
+                    <field name='volume'/>
+                </xpath>
+                <xpath expr="//notebook/page[@name='miscellaneous']" position="after">
+                    <page name="production_capacity" string="Capacidad de produccion">
+                        <field name="production_capacity_line_ids" widget="one2many_list">
+                            <tree>
+                                <field name="production_capacity"/>
+                                <!-- <field name="production_capacity2"/> -->
+                                <field name="specifies"/>
+                                <field name="minimum"/>
+                                <field name="maximun"/>
+                                <field name="production_id" invisible="1"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page name="physicochemical_properties" string="Propiedades Fisicoquimicas">
+                        <field name="physicochemical_properties_line_ids" widget="one2many_list">
+                            <tree>
+                                <field name="physicochemical_properties"/>
+                                <!-- <field name="physicochemical_properties2"/> -->
+                                <field name="specifies"/>
+                                <field name="minimum"/>
+                                <field name="maximun"/>
+                                <field name="production_id" invisible="1"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
