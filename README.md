@@ -1,0 +1,1 @@
+# pintugama_qa_m
