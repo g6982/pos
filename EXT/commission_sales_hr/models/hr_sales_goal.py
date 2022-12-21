@@ -148,7 +148,7 @@ class HrSalesCommission(models.Model):
     amount_goal = fields.Float(string='Monto a cumplir')
    # type_entry = fields.Many2one('hr.payslip.input.type', 'Tipo de entrada')
    # percentage_goal_top = fields.Float(string='Porcentaje maximo de la meta') 
-   # percentage_goal = fields.Float(string='Porcentaje de la meta a cumplir') 
+    percentage_goal = fields.Float(string='Porcentaje de la meta a cumplir') 
     
 
 
