@@ -29,7 +29,7 @@ class HrSalesGoal(models.TransientModel):
     def print_report_sale(self):
         for user in self.user_ids:
 
-            invoice=self.env['account.move'].search([('user_ids','=',user.id),('payment_state','in',('paid','paid')),('invoice_date','>=',self.date_start),('invoice_date','<=',self.date_stop)])
+            invoice=self.env['account.move'].search([('invoice_user_id','=',user.id),('payment_state','in',('paid','paid')),('invoice_date','>=',self.date_start),('invoice_date','<=',self.date_stop)])
            # invoice=self.env['account.move'].search([('invoice_user_id','=',user.id),('invoice_date','>=',self.date_start),('invoice_date','<=',self.date_stop)])
             if invoice:
                 for det in invoice:
@@ -142,7 +142,7 @@ class HrSalesCommission(models.Model):
         ('fixed', 'Monto Fijo'),
         ('percent', 'Porcentaje'),
     ], 'Tipo de Comisión', default='fixed')
-    amount_commission = fields.Float(string='Monto o porcentaje de comision')
+    amount_commission = fields.Float(string='Monto  comision Bs')
     amount_commission_usd = fields.Float(string='Monto comision usd')
   
     
