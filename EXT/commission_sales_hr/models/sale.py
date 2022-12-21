@@ -8,6 +8,7 @@ class SaleOrder(models.Model):
     
     commission_sale = fields.Many2one('hr.sales.commission', string='Comision a elegir')
     commission = fields.Float('Comision')
+    commission1 = fields.Float('Comision Usd')
     #state_id = fields.Many2one('res.country.state', 'Estado', related="partner_id.state_id", store=True)
 
     # manager_id = fields.Many2one('res.users', 'Gerente')
@@ -33,6 +34,24 @@ class SaleOrder(models.Model):
             
             else:
                 record.commission = 0.0
+
+
+
+
+    @api.onchange('commission_sale')
+    def _calc_commission_sale_usd(self):
+        for record in self:
+            sale_goal = record.commission_sale.amount_commission_usd
+            if record.commission_sale.amount_commission_usd > 0.0:
+                sale_goal = sale_goal * record.commission_sale.amount_commission_usd / 100
+            if record.amount_untaxed >= sale_goal:
+                if record.commission_sale.rules_type == 'percent':
+                    record.commission1 = record.amount_untaxed * record.commission_sale.amount_commission_usd / 100
+                if record.commission_sale.rules_type == 'fixed':
+                    record.commission1 = record.commission_sale.amount_commission_usd
+            
+            else:
+                record.commission1 = 0.0
            
                 
     def _prepare_invoice(self):

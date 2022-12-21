@@ -10,6 +10,9 @@
                <xpath expr="//field[@name='total_adeudado_org']" position="after">
                     <field name="commission"/>
                 </xpath>  
+                <xpath expr="//field[@name='total_adeudado_org']" position="after">
+                    <field name="commission1"/>
+                </xpath>  
               <xpath expr="//field[@name='os_currency_rate']" position="after">
                     <field name="commission_sale"/>
                 </xpath>
