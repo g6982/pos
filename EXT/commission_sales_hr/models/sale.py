@@ -24,8 +24,6 @@ class SaleOrder(models.Model):
         for record in self:
             sale_goal = record.commission_sale.amount_goal
             if record.commission_sale.percentage_goal > 0.0:
-                sale_goal = sale_goal * record.commission_sale.percentage_goal / 100
-            if record.amount_untaxed >= sale_goal:
                 if record.commission_sale.rules_type == 'percent':
                     record.commission = record.amount_untaxed * record.commission_sale.amount_commission / 100
                 if record.commission_sale.rules_type == 'fixed':
