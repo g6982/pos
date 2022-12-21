@@ -1,6 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_hr_sales_goals,hr.sales.goal,model_hr_sales_goal,,1,1,1,1
-access_hr_sales_goals_quaterly,hr.sales.goal.quaterly,model_hr_sales_goal_quaterly,,1,1,1,1
-access_hr_sales_commission,hr.sales.commission,model_hr_sales_commission,,1,1,1,1
-access_hr_payslip_comision,hr.payslip.comision,model_hr_payslip_comision,,1,1,1,1
-access_hr_commission_invoice,hr.commission.invoice,model_hr_commission_invoice,,1,1,1,1
