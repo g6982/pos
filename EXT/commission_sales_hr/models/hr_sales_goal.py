@@ -9,7 +9,6 @@ class HrSalesGoal(models.TransientModel):
     _name = 'hr.sales.goal'
     _order = 'id desc'
 
-   # name = fields.Char(string='Nombre de la meta')
     user_ids = fields.Many2many('res.users', string='Vendedores')
     date_start = fields.Date(string='Desde')
     date_stop = fields.Date(string="Hasta")
@@ -30,8 +29,8 @@ class HrSalesGoal(models.TransientModel):
     def print_report_sale(self):
         for user in self.user_ids:
 
-            invoice=self.env['account.move'].search([('invoice_user_id','=',user.id),('payment_state','in',('paid','paid')),('invoice_date','>=',self.date_start),('invoice_date','<=',self.date_stop)])
-           # invoice=self.env['account.move'].search([('invoice_user_id','=',user.id),('invoice_date','>=',self.date_start),('invoice_date','<=',self.date_stop)])
+           # invoice=self.env['account.move'].search([('invoice_user_id','=',user_id.id),('payment_state','in',('paid','paid')),('invoice_date','>=',self.date_start),('invoice_date','<=',self.date_stop)])
+            invoice=self.env['account.move'].search([('invoice_user_id','=',user.id),('invoice_date','>=',self.date_start),('invoice_date','<=',self.date_stop)])
             if invoice:
                 for det in invoice:
                     value=({

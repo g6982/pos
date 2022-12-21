@@ -29,6 +29,8 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>
+                    <field name="amount_commission"/>
+                    <field name="amount_commission_usd"/>
                 </tree>
             </field>
         </record>
