@@ -11,7 +11,7 @@
                         <group>
                             <group>
                                 <field name="name"/>
-                                 <field name="user_ids" required="1" widget="many2many_tags"/> -->
+                                 <field name="user_ids" required="1" widget="many2many_tags"/> 
                                 <field name="rules_type"/>
                                 <field name="amount_commission"/>
                                 <field name="amount_commission_usd"/>
