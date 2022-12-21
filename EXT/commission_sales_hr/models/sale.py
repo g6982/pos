@@ -11,7 +11,7 @@ class SaleOrder(models.Model):
     #state_id = fields.Many2one('res.country.state', 'Estado', related="partner_id.state_id", store=True)
 
     # manager_id = fields.Many2one('res.users', 'Gerente')
-    # currency_id_bs = fields.Many2one('res.currency', 'currency', compute='_compute_currency_bs')
+     currency_id_bs = fields.Many2one('res.currency', 'currency', compute='_compute_currency_bs')
 
 
     # @api.depends()       
