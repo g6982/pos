@@ -28,7 +28,7 @@
        # 'views/hr_inherit_payslip_view.xml',
        
         # ----- repotes ----- #
-        "report/sale_report.xml",
+       # "report/sale_report.xml",
 
 
         # ----- wizards ----- #

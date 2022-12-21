@@ -25,8 +25,8 @@
                                                   al   <field name="percentage_goal_top" class="oe_inline"/>
                                             </div>
                                         </div>
-                                    </div>  -->
-                                <field name="type_entry"/>
+                                    </div>  
+                                <field name="type_entry"/> -->
                             </group>
                         </group>
                     </sheet>
@@ -40,7 +40,7 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>
-                    <field name="type_entry"/>
+              <!--      <field name="type_entry"/>  -->
                 </tree>
             </field>
         </record>
