@@ -9,7 +9,7 @@ class HrSalesGoal(models.TransientModel):
     _name = 'hr.sales.goal'
     _order = 'id desc'
 
-   
+   # name = fields.Char(string='Nombre de la meta')
     user_ids = fields.Many2many('res.users', string='Vendedores')
     date_start = fields.Date(string='Desde')
     date_stop = fields.Date(string="Hasta")
@@ -66,6 +66,72 @@ class HrCommissionInvoice(models.Model):
         return result
 
 
+class HrSalesGoalQuaterly(models.Model):
+    _name = 'hr.sales.goal.quaterly'
+    _order = 'id desc'
+
+    rules_type = fields.Selection([
+        ('fixed', 'Monto Fijo'),
+        ('percent', 'Porcentaje'),
+    ], 'Tipo de Comisión', default='fixed')
+    name = fields.Char(string='Nombre de la meta')
+    user_ids = fields.Many2many('res.users', string='Vendedores o Gerentes')
+    amount_goal = fields.Float(string='Meta de ventas trimestral')
+    # tax_period = fields.Char('Periodo Tributario', required=True, default=lambda *a: datetime.now().strftime('%Y-%m'))
+    percentage_goal = fields.Float(string='Porcentaje de la meta a cumplir') 
+    percentage_goal_top = fields.Float(string='Porcentaje maximo de la meta') 
+    amount_commission = fields.Float(string='Monto comision')
+    amount_commission_usd = fields.Float(string='Monto comision usd')
+    type_goal = fields.Selection([('pool', 'Pool'), ('region', 'Region')], string="Tipo de meta")
+    type_entry = fields.Many2one('hr.payslip.input.type', 'Tipo de entrada')
+   
+
+
+    
+        
+    @api.onchange('amount_commission_usd')
+    def onchange_conversion_amount_commission_bs(self):
+        currency = self.env['res.currency.rate.server'].search([('id','=',2)])
+        for record in self:
+            if currency:
+                if record.rules_type == 'fixed':
+                    for c in currency:
+                        record.amount_commission = record.amount_commission_usd * c.res_currency
+                if record.rules_type == 'percent':
+                    record.amount_commission_usd = ''
+
+    @api.onchange('amount_commission')
+    def onchange_conversion_amount_commission_dollar(self):
+        currency = self.env['res.currency.rate.server'].search([('id','=',2)])
+        for record in self:
+            if currency:
+                if record.rules_type == 'fixed':
+                    for c in currency:
+                        record.amount_commission_usd = record.amount_commission / c.res_currency
+                if record.rules_type == 'percent':
+                    record.amount_commission_usd = ''
+    # tax_period_quaterly = fields.Char('Periodo Trimestrales')
+    
+    # @api.onchange('tax_period')
+    # def calc_tax_period_quaterly(self):
+    #     if self.tax_period:
+    #         current = datetime.strptime(self.tax_period + '-01', '%Y-%m-%d')
+    #         periods = ''
+    #         first_quaterly = current + relativedelta(months=2)
+    #         periods += first_quaterly.strftime('%Y-%m') + ','
+            
+    #         second_quaterly = current + relativedelta(months=6)
+    #         periods += second_quaterly.strftime('%Y-%m') + ','
+            
+    #         third_quaterly = current + relativedelta(months=9)
+    #         periods += third_quaterly.strftime('%Y-%m') + ','
+    
+
+    #         last_quaterly = current + relativedelta(months=12)
+    #         periods += last_quaterly.strftime('%Y-%m')
+            
+    #         self.tax_period_quaterly = periods
+
 
 class HrSalesCommission(models.Model):
     _name = 'hr.sales.commission'
@@ -79,13 +145,8 @@ class HrSalesCommission(models.Model):
     ], 'Tipo de Comisión', default='fixed')
     amount_commission = fields.Float(string='Monto o porcentaje de comision')
     amount_commission_usd = fields.Float(string='Monto comision usd')
-    amount_goal = fields.Float(string='Monto a cumplir')
-   # type_entry = fields.Many2one('hr.payslip.input.type', 'Tipo de entrada')
-   # percentage_goal_top = fields.Float(string='Porcentaje maximo de la meta') 
-    percentage_goal = fields.Float(string='Porcentaje de la meta a cumplir') 
+  
     
-
-
 
     @api.onchange('amount_commission_usd')
     def onchange_conversion_amount_commission_bs(self):
