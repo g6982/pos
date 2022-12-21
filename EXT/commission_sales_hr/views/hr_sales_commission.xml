@@ -2,48 +2,7 @@
 <odoo>
     <data>
         
-        <record id="hr_sales_commission_view_form" model="ir.ui.view">
-            <field name="name">hr.sales.commission.view.form</field>
-            <field name="model">hr.sales.commission</field>
-            <field name="arch" type="xml">
-                <form string="Comision por venta">
-                    <sheet>
-                        <group>
-                            <group>
-                                <field name="name"/>
-                                 <field name="user_ids" required="1" widget="many2many_tags"/> -->
-                                <field name="rules_type"/>
-                                <field name="amount_commission"/>
-                                <field name="amount_commission_usd"/>
-                            <!--    <field name="amount_goal"/>
-                                  <label for="percentage_goal" string="Porcentaje de la meta a cumplir"/>
-                                   <div class="oe_inline" name="percentage_goal">
-                                        <field name="percentage_goal" class="oe_read_only oe_inline" string="Porcentaje de la meta a cumplir" required="0"/>
-                                        <div class="oe_edit_only oe_inline" name="percentage_goal" style="display: inline;">
-                                            <div>
-                                                <field name="percentage_goal" class="oe_inline"/>
-                                                  al   <field name="percentage_goal_top" class="oe_inline"/>
-                                            </div>
-                                        </div>
-                                    </div>  
-                                <field name="type_entry"/> -->
-                            </group>
-                        </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
-
-        <record id="hr_sales_commission_view_tree" model="ir.ui.view">
-            <field name="name">hr.sales.commission.view.tree</field>
-            <field name="model">hr.sales.commission</field>
-            <field name="arch" type="xml">
-                <tree>
-                    <field name="name"/>
-              <!--      <field name="type_entry"/>  -->
-                </tree>
-            </field>
-        </record>
+       
 
         <record id="hr_sales_commission_action" model="ir.actions.act_window">
             <field name="type">ir.actions.act_window</field>
