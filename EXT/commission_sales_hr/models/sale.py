@@ -27,8 +27,8 @@ class SaleOrder(models.Model):
                 if record.commission_sale.rules_type == 'fixed':
                     record.commission = record.commission_sale.amount_commission
             
-            else:
-                record.commission = 0.0
+                else:
+                    record.commission = 0.0
            
                 
     def _prepare_invoice(self):
