@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="hr_payslip_comision_form" model="ir.ui.view">
+            <field name="name">hr.payslip.comision</field>
+            <field name="model">hr.payslip</field>
+            <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='struct_id']" position="after">
+                    <field name="monto_resumen_commission" string="Monto Total Comision (Bs)"/>
+                </xpath>
+                
+                <xpath expr="//form[1]/sheet[1]/notebook[1]" position="inside">
+                    <page string="Pagos de Comisiones Vendedor" name="studio_page_H4Wpv">
+                      <group name="studio_group_H4Wpv">
+                        <field name="commission_line_ids" nolabel="1">
+                            <tree string="Registro de comisiones" editable="buttom">
+                                <field name="payslip_id" string="Pago" invisible="1"/>
+                                <field name="factura_id" string="Factura"/>
+                                <field name="fecha_fact" string="Fecha Factura"/>
+                                <field name="monto_fact" string="Monto Factura"/>
+                                <field name="monto_base" string="Monto Base"/>
+                                <field name="currency_id" string="Moneda"/>
+                                <field name="commission_sale" string="%"/>
+                                <field name="monto_commission" string="Monto Comision"/>
+                                <field name="monto_commission_bs" string="Monto Comision (Bs.)" sum="monto_commission_bs"/>
+                                <field name="company_id" string="Compañia" invisible="1"/>
+                                
+                            </tree>
+                        </field>
+                      </group>
+                    </page>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>
