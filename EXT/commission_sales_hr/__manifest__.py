@@ -24,8 +24,8 @@
         'views/sale.xml',
         'views/account_move.xml',
         'views/hr_sales_commission.xml',
-        'views/hr_sales_goal.xml',
-        'views/hr_inherit_payslip_view.xml',
+        #'views/hr_sales_goal.xml',
+       # 'views/hr_inherit_payslip_view.xml',
        
         # ----- repotes ----- #
         "report/sale_report.xml",
