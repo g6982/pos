@@ -1,6 +1,3 @@
 # -*- coding: utf-8 -*-
 
-from . import  sale, account_move, hr_sales_goal,
-
-#hr_payslip_comision
-#hr_payslip,
+from . import hr_payslip,hr_sales_goal, sale, account_move, hr_payslip_comision
