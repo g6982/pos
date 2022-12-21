@@ -75,6 +75,7 @@ class SaleOrder(models.Model):
             'source_id': self.source_id.id,
             'user_id': self.user_id.id,
             'commission': self.commission,
+            'commission1': self.commission1,
             'invoice_user_id': self.user_id.id,
             'commission_sale': self.commission_sale.id,
             # 'manager_id': self.manager_id,
