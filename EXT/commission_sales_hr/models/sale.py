@@ -16,8 +16,8 @@ class SaleOrder(models.Model):
 
     # @api.depends()       
     def _compute_currency_bs(self):
-        currency = self.env['res.currency.rate.server'].search([('id','=',3)])
-        self.currency_id_bs = currency.id
+            currency = self.env['res.currency.rate.server'].search([('id','=',3)])
+            self.currency_id_bs = currency.id
 
     @api.onchange('commission_sale')
     def _calc_commission_sale(self):
