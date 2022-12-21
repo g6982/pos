@@ -11,13 +11,13 @@ class SaleOrder(models.Model):
     #state_id = fields.Many2one('res.country.state', 'Estado', related="partner_id.state_id", store=True)
 
     # manager_id = fields.Many2one('res.users', 'Gerente')
-     currency_id_bs = fields.Many2one('res.currency', 'currency', compute='_compute_currency_bs')
+    currency_id_bs = fields.Many2one('res.currency', 'currency', compute='_compute_currency_bs')
 
 
     # @api.depends()       
     def _compute_currency_bs(self):
-            currency = self.env['res.currency.rate.server'].search([('id','=',3)])
-                self.currency_id_bs = currency.id
+        currency = self.env['res.currency.rate.server'].search([('id','=',3)])
+        self.currency_id_bs = currency.id
 
     @api.onchange('commission_sale')
     def _calc_commission_sale(self):
