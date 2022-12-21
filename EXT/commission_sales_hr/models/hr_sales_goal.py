@@ -9,7 +9,7 @@ class HrSalesGoal(models.TransientModel):
     _name = 'hr.sales.goal'
     _order = 'id desc'
 
-   # name = fields.Char(string='Nombre de la meta')
+   
     user_ids = fields.Many2many('res.users', string='Vendedores')
     date_start = fields.Date(string='Desde')
     date_stop = fields.Date(string="Hasta")
@@ -66,7 +66,7 @@ class HrCommissionInvoice(models.Model):
         return result
 
 
-class HrSalesGoalQuaterly(models.Model):
+"""class HrSalesGoalQuaterly(models.Model):
     _name = 'hr.sales.goal.quaterly'
     _order = 'id desc'
 
@@ -109,7 +109,7 @@ class HrSalesGoalQuaterly(models.Model):
                     for c in currency:
                         record.amount_commission_usd = record.amount_commission / c.res_currency
                 if record.rules_type == 'percent':
-                    record.amount_commission_usd = ''
+                    record.amount_commission_usd = ''   """
     # tax_period_quaterly = fields.Char('Periodo Trimestrales')
     
     # @api.onchange('tax_period')
