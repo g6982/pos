@@ -73,7 +73,7 @@
 
 
                              <t t-set="acum_subtotal" t-value="0"/>
-                           
+                             <t t-set="acum_subtotal_usd" t-value="0"/>
 
                                  
 
@@ -85,7 +85,12 @@
                         <td style="font-size:10px;" align="center" ><t t-esc="lineas.account_id.amount_total" /><t t-esc="lineas.account_id.currency_id.symbol" /></td>
                         <td style="font-size:10px;" align="center" ><t t-esc="lineas.account_id.amount_untaxed"/><t t-esc="lineas.account_id.currency_id.symbol" /></td>
                         <td style="font-size:10px;" align="center"><t t-esc="lineas.account_id.commission_sale.name" /></td>
-                        <td style="font-size:10px;" align="center"><t t-esc="lineas.float_format(lineas.account_id.commission)" /><t t-esc="lineas.account_id.currency_id.symbol" /><t t-set="acum_subtotal" t-value="acum_subtotal+lineas.account_id.commission"/></td> 
+
+
+
+                        <td style="font-size:10px;" align="center"><t t-esc="lineas.float_format(lineas.account_id.commission)" /><t t-esc="lineas.account_id.currency_id.symbol" /><t t-set="acum_subtotal" t-value="acum_subtotal+lineas.account_id.commission"/></td>
+
+                        <td style="font-size:10px;" align="center"><t t-esc="lineas.float_format(lineas.account_id.commission1)" /><t t-esc="lineas.account_id.currency_id.symbol" /><t t-set="acum_subtotal" t-value="acum_subtotal+lineas.account_id.commission1"/></td> 
 
 
 
@@ -106,6 +111,14 @@
                  <td colspan="3"><div align="right" style="font-size:13px;">Total de comisiones:&amp;nbsp;<t t-esc="docs.float_format(acum_subtotal)"/></div></td>
                  
                   <t t-set="acum_subtotal" t-value="acum_subtotal"/>
+
+                </tr>
+
+                 <tr style="font-size:13px;">
+
+                 <td colspan="3"><div align="right" style="font-size:13px;">Total de comisiones Usd:&amp;nbsp;<t t-esc="docs.float_format(acum_subtotal_usd)"/></div></td>
+                 
+                  <t t-set="acum_subtotal_usd" t-value="acum_subtotal_usd"/>
 
                 </tr>
                 </table>

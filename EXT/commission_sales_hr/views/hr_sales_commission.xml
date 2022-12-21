@@ -15,18 +15,7 @@
                                 <field name="rules_type"/>
                                 <field name="amount_commission"/>
                                 <field name="amount_commission_usd"/>
-                            <!--    <field name="amount_goal"/>
-                                  <label for="percentage_goal" string="Porcentaje de la meta a cumplir"/>
-                                   <div class="oe_inline" name="percentage_goal">
-                                        <field name="percentage_goal" class="oe_read_only oe_inline" string="Porcentaje de la meta a cumplir" required="0"/>
-                                        <div class="oe_edit_only oe_inline" name="percentage_goal" style="display: inline;">
-                                            <div>
-                                                <field name="percentage_goal" class="oe_inline"/>
-                                                  al   <field name="percentage_goal_top" class="oe_inline"/>
-                                            </div>
-                                        </div>
-                                    </div>  
-                                <field name="type_entry"/> -->
+                            
                             </group>
                         </group>
                     </sheet>
@@ -40,7 +29,6 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>
-              <!--      <field name="type_entry"/>  -->
                 </tree>
             </field>
         </record>
@@ -55,10 +43,6 @@
 
          <menuitem id="menu_hr_sales_commission" name="Comisiones" parent="sale.sale_menu_root" sequence="1000"/>
         <menuitem id="menu_hr_sales" action="hr_sales_commission_action" name="Registro de Comision" parent="menu_hr_sales_commission" sequence="1"/>
-
-
-
-        <!-- <menuitem id="menu_hr_sales_goals" name="Goals" parent="hr_payroll.menu_hr_payroll_configuration" sequence="1"/> -->
 
 
 
