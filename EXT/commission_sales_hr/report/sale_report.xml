@@ -67,7 +67,8 @@
                                         <td>MONTO FACTURA</td>
                                         <td>MONTO BASE</td>
                                         <td>COMISION</td>
-                                        <td>MONTO COMISION</td>
+                                        <td>MONTO/BS</td>
+                                        <td>MONTO/$</td>
                                       </tr>
                                     </tbody>
 
