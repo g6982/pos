@@ -138,8 +138,9 @@ class HrSalesCommission(models.Model):
     _order = 'id desc'
 
     name = fields.Char(string='Nombre de la comision')
-    user_ids = fields.Many2many('res.users', string='Vendedores o Gerentes')
+    user_ids = fields.Many2many('res.users', string='Vendedores ')
     rules_type = fields.Selection([
+        ('fixed', 'Monto Fijo'),
         ('percent', 'Porcentaje'),
     ], 'Tipo de Comisión', default='fixed')
     amount_commission = fields.Float(string='Monto o porcentaje de comision')
