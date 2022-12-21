@@ -89,7 +89,7 @@
 
 
 
-                        <td style="font-size:10px;" align="center"><t t-esc="lineas.float_format(lineas.account_id.commission)" /<t t-set="acum_subtotal" t-value="acum_subtotal+lineas.account_id.commission"/></td>
+                        <td style="font-size:10px;" align="center"><t t-esc="lineas.float_format(lineas.account_id.commission)" /><t t-set="acum_subtotal" t-value="acum_subtotal+lineas.account_id.commission"/></td>
 
                         <td style="font-size:10px;" align="center"><t t-esc="lineas.float_format(lineas.account_id.commission1)" /><t t-set="acum_subtotal_usd" t-value="acum_subtotal_usd+lineas.account_id.commission1"/></td> 
 
