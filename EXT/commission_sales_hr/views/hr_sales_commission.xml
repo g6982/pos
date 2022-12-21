@@ -2,7 +2,18 @@
 <odoo>
     <data>
         
-       
+        
+
+        <record id="hr_sales_commission_view_tree" model="ir.ui.view">
+            <field name="name">hr.sales.commission.view.tree</field>
+            <field name="model">hr.sales.commission</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+              <!--      <field name="type_entry"/>  -->
+                </tree>
+            </field>
+        </record>
 
         <record id="hr_sales_commission_action" model="ir.actions.act_window">
             <field name="type">ir.actions.act_window</field>
