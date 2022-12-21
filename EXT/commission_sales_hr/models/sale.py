@@ -22,9 +22,9 @@ class SaleOrder(models.Model):
     @api.onchange('commission_sale')
     def _calc_commission_sale(self):
         for record in self:
-            sale_goal = record.commission_sale.amount_goal
-            if record.commission_sale.percentage_goal > 0.0:
-                sale_goal = sale_goal * record.commission_sale.percentage_goal / 100
+            sale_goal = record.commission_sale.amount_commission
+            if record.commission_sale.amount_commission > 0.0:
+                sale_goal = sale_goal * record.commission_sale.amount_commission / 100
             if record.amount_untaxed >= sale_goal:
                 if record.commission_sale.rules_type == 'percent':
                     record.commission = record.amount_untaxed * record.commission_sale.amount_commission / 100
